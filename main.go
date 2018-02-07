@@ -52,14 +52,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/zt8k0jI.png", "魂十專用", linebot.ImagemapBaseSize{1920, 1200}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 						log.Print(err)
 					}
-				} else if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
+				} /*else if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
 					log.Print(err)
-				}
-			case *linebot.StickerMessage :
+				}*/
+/*			case *linebot.StickerMessage :
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/a20XZv3.jpg", "https://i.imgur.com/a20XZv3.jpg", linebot.ImagemapBaseSize{1280, 1040}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 					log.Print(err)
 				}
-	
+*/	
 			}
 		}
 	}
