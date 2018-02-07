@@ -22,7 +22,7 @@ import (
 )
 
 var bot *linebot.Client
-var A="test"
+var A="keng"
 func main() {
 	var err error
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
@@ -49,7 +49,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				if message.Text == A {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("OK!")).Do(); err != nil {
+						if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/zt8k0jI.png", "魂十專用", linebot.ImagemapBaseSize{1920, 1200}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
