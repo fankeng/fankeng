@@ -20,6 +20,8 @@ import (
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
+var A string
+A = "test"
 
 var bot *linebot.Client
 
@@ -35,7 +37,7 @@ func main() {
 
 func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	events, err := bot.ParseRequest(r)
-	Var A String
+	var A String
 	A="test"
 	if err != nil {
 		if err == linebot.ErrInvalidSignature {
