@@ -50,6 +50,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("https://imgur.com/a/6CFAx")).Do(); err != nil {
+					log.Print(err)
+				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://imgur.com/a/6CFAx", "https://imgur.com/a/6CFAx", linebot.ImagemapBaseSize{1040, 1040}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 					log.Print(err)
 				}
