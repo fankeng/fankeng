@@ -52,6 +52,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 					log.Print(err)
 				}
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+					log.Print(err)
+				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/FpwSiOj.jpg", "https://i.imgur.com/FpwSiOj.jpg", linebot.ImagemapBaseSize{1040, 1040}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 					log.Print(err)
 				}
