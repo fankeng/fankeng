@@ -53,7 +53,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Print(err)
 				}
 			case *linebot.StickerMessage :
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/a20XZv3.jpg", "https://i.imgur.com/a20XZv3.jpg", linebot.ImagemapBaseSize{1040, 1040}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImagemapMessage("https://i.imgur.com/a20XZv3.jpg", "https://i.imgur.com/a20XZv3.jpg", linebot.ImagemapBaseSize{1280, 1040}, linebot.NewMessageImagemapAction("URANAI!", linebot.ImagemapArea{520, 520, 520, 520}))).Do(); err != nil {
 					log.Print(err)
 				}
 	
