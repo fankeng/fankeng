@@ -22,7 +22,7 @@ import (
 )
 
 var bot *linebot.Client
-
+var A="test"
 func main() {
 	var err error
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
@@ -48,7 +48,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-  				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
+				if message.Text == A {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("OK!")).Do(); err != nil {
+						log.Print(err)
+					}
+				} else if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
 					log.Print(err)
 				}
 			case *linebot.StickerMessage :
